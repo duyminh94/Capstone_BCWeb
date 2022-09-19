@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Minh Thanh</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- OWl -->
+    <link rel="stylesheet" href="./assets/owl/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./assets/owl/owl.theme.default.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/Css/Style.css">
+
+</head>
+
+<body>
+
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="container__header">
+                <nav class="navbar navbar-expand-md navbar-dark">
+                    <div class="header__logo">
+                        <!-- Brand -->
+                        <a class="navbar-brand" href="#">
+                            <img src="./assets/image/Pngtrecat.png" alt="">
+                        </a>
+                        <h3>Minh Thanh</h3>
+                    </div>
+                    <!-- Menu -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <div class="header__nav">
+
+                            <ul class="navbar py-5 text-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active " href="#">Shop</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">News</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">Blog</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+
+                            <div class="header__contact">
+                                <a href="tel:+84387220208" class="header__contact-phone">
+                                    <i class="fa fa-phone"></i>
+                                    (+84) 387 220 208
+                                </a>
+
+                                <!-- Open The Modal -->
+                                <span id="headercart" class="cart-icon btnCart" data-toggle="modal"
+                                    data-target="#cartModal">
+                                    <i class="fa-solid fa-credit-card fa-2x">
+                                        <sup><span id="TotalQty" class="inactive "></span></sup>
+                                    </i>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <!-- The Modal Cart -->
+                        <div class="modal fade" id="cartModal" tabindex="1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header border-bottom-0">
+                                        <h5 id="titleListCart" class="modal-title" id="exampleModalLabel">
+                                            Bạn Đã Mua Những Gì
+                                        </h5>
+                                        <button id="closeListCart" type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-image">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Hình Sản Phẩm</th>
+                                                    <th scope="col">Tên Sản Phẩm</th>
+                                                    <th scope="col">Giá</th>
+                                                    <th scope="col">Số Lượng</th>
+                                                    <th scope="col">Tổng Giá</th>
+                                                    <th scope="col">Actions</th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody id="tbodyInSmart">
+                                            </tbody>
+                                        </table>
+                                        <div class="d-flex justify-content-end">
+                                            <h5>Tổng: <span id="GetPay" class="price text-info"></span></h5>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-top-0 d-flex justify-content-between">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Đóng</button>
+                                        <button id="btnCheckOut" data-toggle="modal" data-target="#myModalCheckOut"
+                                            type="button" class="btn btn-info" onclick="CheckOut()">Kiểm Tra Mặt
+                                            Hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- The modal confirmOrder -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="phoneNameModals"></h4>
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-hover">
+                                            <h2 class="text-center">Thông Tin Sản Phẩm</h2>
+                                            <thead>
+                                                <tr>
+                                                    <th>Giá Sản Phẩm</th>
+                                                    <th>Màn Hình</th>
+                                                    <th>Camera Trước</th>
+                                                    <th>Camera Sau</th>
+                                                    <th>Mô Tả</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbodyModalReview">
+                                                <tr>
+                                                    <td id="phonePrice"></td>
+                                                    <td id="phoneScreen"></td>
+                                                    <td id="phoneBack"></td>
+                                                    <td id="phoneFont"></td>
+                                                    <td id="phoneDesc"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Modal -->
+                        <div class="modal fade" id="myModalCheckOut">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"></h4>
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-hover">
+                                            <h2 class="text-center">Xác Nhận Đơn Hàng</h2>
+                                            <thead>
+                                                <tr>
+                                                    <th>Tên Sản Phẩm</th>
+                                                    <th>Số Lượng</th>
+                                                    <th>Tiền Sản Phẩm</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="contentPurchase"></tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-flex">
+                                        <h5 class="ml-3">Tổng Tiền: <span id="paysumPurchase"
+                                                class="price text-info"></span>
+                                        </h5>
+                                    </div>
+                                    <div class="modal-footer border-top-0 d-flex justify-content-between">
+                                        <button id="closeCheckOut" type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Đóng</button>
+                                        <button data-toggle="modal" data-target="#myModalPurchase" type="button"
+                                            class="btn btn-success">Thanh Toán</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModalPurchase">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"></h4>
+                                        <button id="ContinueShopping" type="button" class="close"
+                                            data-dismiss="modal">×</button>
+                                    </div>
+                                    <div class="modal-body text-success">
+                                        <h4>Đơn hàng của bạn đã được đặt thành công !!!</h4>
+                                        <h4 id="orderNum"></h4>
+                                        <h4>Cảm ơn Quý Khách</h4>
+                                    </div>
+                                    <div class="modal-footer border-top-0 d-flex justify-content-between">
+                                        <button type="button" class="btn btn-success" onclick="Confirmorder()">Tiếp Tục
+                                            Đặt Hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Carousel -->
+
+    <section id="carousel_banner">
+        <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="./assets/image/30.04-Fb-3png.png" alt="">
+                </div>
+                <div class="item"><img src="./assets/image/oplung-2880-800-1920x533-1.png" alt=""></div>
+                <div class="item"><img src="./assets/image/nenmuaipadnaonam2022-760x367.png" alt=""></div>
+                <div class="item"><img src="./assets/image/giam-2-9_800x450.jpg" alt=""></div>
+                <div class="item"><img src="./assets/image//baner-web.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- post -->
+    <section id="post">
+        <div class="post__container">
+            <div class="post_grid">
+                <div class="col-2 col">
+                    <i class="fa-solid fa-truck"></i>
+                    <span>
+                        Giao Hàng Toàn Quốc
+                    </span>
+                </div>
+                <div class="col-2 col">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span>
+                        Mẫu Mã Đa Dạng
+                        <br />
+                        Hàng Chính Hãng
+                    </span>
+                </div>
+                <div class="col-2 col">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>
+                        Bảo Hành 6 Tháng
+                    </span>
+                </div>
+                <div class="col-2 col">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span>
+                        Mua Trả Góp Lãi Suất 0%
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- My Store  -->
+    <section id="Store">
+        <!-- Select box -->
+        <div class="form-group selectedType container w-25">
+            <select class="form-control  bg-dark text-white" id="Selectedtype" onchange="displayTypePhone(this.value)" >
+                <option value="All">Chọn loại điện thoại</option>
+                <option value="Iphone">Iphone</option>
+                <option value="Samsung">Samsung</option>
+                
+            </select>
+        </div>
+        <!-- End Select box -->
+
+        <div class="collection__content container-fluid">
+
+            <div class="container">
+                <div id="showSmart" class="row justify-content-center">
+                    <!-- <div class=" my-3 cart-item col-lg-3 col-md-4 col-sm-6">
+                        <div class="card text-center">
+                            <div class="card-img">
+                                <span class="type-label hot">Hot</span>
+                                <p class="stocks">Minh Thanh</p>
+                                <img src="${product.img}" class="phoneImg" alt="">
+                                <div class="card-cart d-flex  justify-content-around">
+                                    <button type="button" class="btn-card-detail btn btn-info" data-toggle="modal"
+                                        data-target="#myModal" onclick="reviewProduct()">Preview
+                                        Info</button>
+                                    <button type="button" class="btn-card-cart btn btn-success"
+                                        onclick="AddtoCarts(event)" data-action="${product.id}">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title my-2 phoneName">${product.name}</h5>
+                                <p class="card-text my-2"> <sup class="text-warning"><i
+                                            class="fa-2x fa-solid fa-money-bill"></i></sup><span
+                                        class="phonePrice">${product.price}VND</span></p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__content py-3">
+            <div class="container py-lg-4">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-7 footer_new1 pr-lg-5">
+                        <div class="footer_contact">
+                            <h2 class="footer_menu">Contact Us</h2>
+                            <a href="#">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <span>112 Cao Thang street, District 3, Ho Chi Minh city</span>
+                            </a>
+                            <a href="tel:+0387220208">
+                                <i class="fa-solid fa-phone"></i>
+                                <span> 0387 220 208 </span>
+                            </a>
+                            <a href="#"></i>
+                                <i class="fa-solid fa-clock"></i>
+                                <span> Monday - Friday: 8 AM - 5 PM </span>
+                            </a>
+                            <div class="footer_icon mt-4">
+                                <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-5 col-6 footer_new2 mt-sm-0 mt-5">
+                        <ul>
+                            <h5 class="footer_menu">Usefull Links</h5>
+                            <li>Home</li>
+                            <li>Shop</li>
+                            <li>Blog</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-5 col-6 footer_new2 mt-sm-0 mt-5">
+                        <ul>
+                            <h5 class="footer_menu">More Info</h5>
+                            <li>History</li>
+                            <li>Media</li>
+                            <li>Sound</li>
+                            <li>Service</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-7 footer_new4 mt-sm-0 mt-5">
+                        <h5 class="footer_menu">Thanh Toán</h5>
+                        <ul>
+                            <li>
+                                <img src="./assets/image/logo-visa.png" alt="">
+                                <img src="./assets/image/logo-master.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./assets/image/logo-samsungpay.png" alt="">
+                                <img src="./assets/image/logo-jcb.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./assets/image/logo-atm.png" alt="">
+                                <img src="./assets/image/logo-vnpay.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./assets/image/logo-f88.svg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-7 footer_new4 mt-sm-0 mt-5">
+                        <h5 class="footer_menu">Hình Thức Vận Chuyển</h5>
+                        <ul>
+                            <li>
+                                <img src="./assets/image/nhattin.jpg" alt="">
+                                <img src="./assets/image/vnpost.jpg" alt="">
+                            </li>
+
+                            <li class="py-4">
+                                <img src="./assets/image/logo-bct.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="backTotop cd-top text-replace js-cd-top">
+            &#10548;
+        </a>
+    </footer>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="./assets/owl/owl.carousel.js"></script>
+
+    <script src="./assets/backtotop/main.js"></script>
+    <script src="./assets/backtotop/util.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Js app -->
+    <script src="./app/model/ProductList.js"></script>
+    <script src="./app/model/CartItem.js"></script>
+    <script src="./app/services/ProductApi.js"></script>
+    <script src="./app/controllers/main.js"></script>
+
+
+
+    <script>
+        let owl = $('.owl-carousel');
+        owl.owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            center: true,
+            autoplay: false,
+            autoplayTimeout: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+
+            }
+        })
+
+        $('.play').on('click', function () {
+            owl.trigger('play.owl.autoplay', [1000])
+        })
+        $('.stop').on('click', function () {
+            owl.trigger('stop.owl.autoplay')
+        })
+    </script>
+
+
+</body>
+
+</html>
